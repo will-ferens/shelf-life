@@ -32,7 +32,8 @@ export function fetchBook(searchTerm) {
         .then(res => res.json())
         .then(json => {
             dispatch(fetchBooksSuccess(json))
-            return json
+            console.log(json)
+            return json.items.volumeInfo
         })
         .catch(error => dispatch(fetchBooksFailure(error)))
     }

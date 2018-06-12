@@ -20,6 +20,7 @@ export default function(state = initialState, action) {
         }
 
         case FETCH_BOOKS_SUCCESS:
+        console.log(action.payload.books)
         return {
             ...state,
             loading: false,
