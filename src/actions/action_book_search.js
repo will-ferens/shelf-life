@@ -14,7 +14,7 @@ export const fetchBooksBegin = () => ({
 
 export const fetchBooksSuccess = books => ({
     type: FETCH_BOOKS_SUCCESS,
-    payload: { books }
+    payload:  { books }
 })
 
 export const fetchBooksFailure = error => ({

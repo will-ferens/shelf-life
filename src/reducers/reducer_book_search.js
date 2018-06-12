@@ -5,7 +5,7 @@ import {
 } from '../actions/action_book_search'
 
 const initialState = {
-    newBooks: {},
+    newBooks: [],
     initialized: true,
     loading: false,
     error: null
@@ -25,7 +25,7 @@ export default function(state = initialState, action) {
         return {
             ...state,
             loading: false,
-            newBooks: action.payload.books
+            newBooks: [ action.payload.books ]
         }
 
         case FETCH_BOOKS_FAILURE:
@@ -33,7 +33,7 @@ export default function(state = initialState, action) {
             ...state,
             loading: false,
             error: action.payload.error,
-            newBooks: {}
+            newBooks: []
         }
 
         default:

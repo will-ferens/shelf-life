@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import FoundBook from '../components/found_book'
-class ReturnedBooks extends Component {
+import FoundBook from '../containers/found_book'
 
+class ReturnedBooks extends Component {
     render() {
-        console.log(this.props)
         const { error, loading, newBooks, intialized } = this.props.searchedBook
         if(intialized) {
             return <div></div>
@@ -15,13 +14,9 @@ class ReturnedBooks extends Component {
         if(loading) {
             return <div>Loading...</div>
         }
-        if(newBooks){
-            return (
-                <div>
-                    <FoundBook bookData={newBooks} />
-                </div>
-            )
-        }
+        return (
+            <FoundBook bookData={newBooks} />
+        )
     }
 }
 
