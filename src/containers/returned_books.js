@@ -1,46 +1,32 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import FoundBook from '../components/found_book'
 class ReturnedBooks extends Component {
-    renderBooks(volumeInfo){
-        const title = volumeInfo.title
-        const author = volumeInfo.authors
-        const description = volumeInfo.description
-        const cover = volumeInfo.imageLinks.smallThumbnail
-        const pages = volumeInfo.pageCount
 
-        return (
-            <ul>
-                <li><img src={cover}/></li>
-                <li>{title}</li>
-                <li>{author}</li>
-                <li>{description}</li>
-                <li>{pages}</li>
-            </ul>
-        )
-
-    }
     render() {
-        const { error, loading, books } = this.props
-        if(!this.props.newBooks) {
+        console.log(this.props)
+        const { error, loading, newBooks, intialized } = this.props.searchedBook
+        if(intialized) {
             return <div></div>
         }
         if(error) {
-            return <div>Oops! {error.message}</div>
+            return <div>Oops! There was an error</div>
         }
-        if(loading){
+        if(loading) {
             return <div>Loading...</div>
         }
-        return (
-            <div>
-                {books.newBooks.map(this.renderBooks)}
-            </div>
-        )
+        if(newBooks){
+            return (
+                <div>
+                    <FoundBook bookData={newBooks} />
+                </div>
+            )
+        }
     }
 }
 
-function mapStateToProps({books}) {
-    return { books }
+function mapStateToProps({ searchedBook }) {
+    return { searchedBook }
 }
 
 export default connect(mapStateToProps)(ReturnedBooks)
