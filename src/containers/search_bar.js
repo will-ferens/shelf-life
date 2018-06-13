@@ -25,7 +25,8 @@ class SearchBar extends Component {
     }
     render(){
         return (
-            <form
+            <form 
+                className="find-book"
                 onSubmit={this.onFormSubmit}>
                 <input 
                     placeholder="Search for a new book"

@@ -1,15 +1,71 @@
-body {
+html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
-
-.App {
+body {
+  margin: 0 30px 0 30px;
   display: grid;
-  grid-template-columns: 3% 45% 45% 3%;
-  grid-gap: 2%;
+  font-family: sans-serif;
+  grid-template-rows: 15% 75% 15%;
+}
+/* ============= HEADER ====================== */
+
+header {
+  display: grid;
+  grid-row: 1 / 2;
+  grid-template-columns: 25% 50% 15%;
+  grid-template-rows: 50% 50%;
+  padding-top: 10px;
 }
 
+/* ============= MAIN ======================== */
+main {
+  display: grid;
+  grid-template-columns: 5% 42.5% 5% 42.5% 5%;
+}
+
+.existing-books {
+  grid-column: 2 / 2;
+}
+
+.add-new-book {
+  grid-column: 4 / 4;
+}
+
+.find-book {
+  grid-column: 2 / 3;
+  grid-row: 2;
+
+}
 .searched-book {
+  padding-left: 0;
   list-style: none;
+}
+
+.written {
+  text-align: center;
+  padding-top: 17px;
+}
+
+/* ============= FOOTER ====================== */
+.links {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: black;
+  fill: black;
+}
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 25% 50% 15%;
+  grid-template-rows: 50% 50%;
+  padding-top: 10px;
 }
