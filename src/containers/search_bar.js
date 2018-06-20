@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom'
 import { fetchBook } from '../actions/action_book_search'
+
+import ReturnedBooks from './returned_books'
 
 class SearchBar extends Component {
     constructor(props){
@@ -25,15 +28,19 @@ class SearchBar extends Component {
     }
     render(){
         return (
-            <form 
-                className="find-book"
-                onSubmit={this.onFormSubmit}>
-                <input 
-                    placeholder="Search for a new book"
-                    value={this.state.term}
-                    onChange={this.onInputChange} />
-                <button type="submit">Submit</button>
-            </form>
+            <section className="add-new-book">
+            <Link to="/"><button>Back to Your Books</button></Link>
+                <form 
+                    className="find-book"
+                    onSubmit={this.onFormSubmit}>
+                    <input 
+                        placeholder="Search for a new book"
+                        value={this.state.term}
+                        onChange={this.onInputChange} />
+                    <button type="submit">Submit</button>
+                </form>
+                <ReturnedBooks />
+            </section>
         )
     }
 }

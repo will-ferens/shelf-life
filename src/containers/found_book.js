@@ -7,7 +7,7 @@ export default class FoundBook extends Component {
         return (
             this.props.bookData.map(current => {
             const book = current.items[0].volumeInfo
-            console.log(book)
+
             return( 
                     <ul key={current.id} className="searched-book">
                         <li key={book.imageLinks.smallThumbnail}><img src={book.imageLinks.smallThumbnail} alt={book.title} /></li>
