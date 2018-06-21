@@ -5,8 +5,11 @@ import './style/index.css'
 import SearchBar from './containers/search_bar'
 import BookShow from './containers/book_show'
 import YourBooks from './containers/your_books'
+import Login from './containers/login'
+import Register from './containers/register'
 import Header from './components/header'
 import Footer from './components/footer'
+
 
 import registerServiceWorker from './registerServiceWorker'
 
@@ -29,6 +32,8 @@ ReactDOM.render(
                 <Header />
                 <main>
                     <Switch>
+                        <Route path="/login" component={Login} />
+                        <Route path="/register" component={Register} />
                         <Route path="/book/:id" component={BookShow} />
                         <Route path="/search" component={SearchBar} />
                         <Route path="/" component={YourBooks} />
