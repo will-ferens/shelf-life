@@ -1,5 +1,5 @@
 import React from 'react'
-import {ICONS} from '../Constants'
+import {ICONS} from '../constants/constants_icons'
 const Footer = () => {
     return (
         <footer>

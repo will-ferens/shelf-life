@@ -1,8 +1,7 @@
 import {
     FETCH_BOOKS_BEGIN,
     FETCH_BOOKS_SUCCESS,
-    FETCH_BOOKS_FAILURE
-} from '../actions/action_book_search'
+    FETCH_BOOKS_FAILURE } from '../constants/constants_book'
 
 const initialState = {
     newBooks: [],

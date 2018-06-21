@@ -1,4 +1,4 @@
-export const BOOK_SELECTED = 'BOOK_SELECTED'
+import { BOOK_SELECTED } from '../constants/constants_book'
 
 export function showBook(book) {
     return {

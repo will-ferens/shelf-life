@@ -1,12 +1,13 @@
 
+import { 
+    FETCH_BOOKS_BEGIN, 
+    FETCH_BOOKS_SUCCESS, 
+    FETCH_BOOKS_FAILURE } from '../constants/constants_book'
+    
 const API_KEY = 'AIzaSyAHWyKUtEptq99fnW9I7x2V7LOjrmgCnLk'
 const ROOT_URL = 'https://www.googleapis.com/books/v1/volumes?q='
 
-export const FETCH_BOOK = 'FETCH_BOOK'
 
-export const FETCH_BOOKS_BEGIN = 'FETCH_BOOKS_BEGIN'
-export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS'
-export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE'
 
 export const fetchBooksBegin = () => ({
     type: FETCH_BOOKS_BEGIN
