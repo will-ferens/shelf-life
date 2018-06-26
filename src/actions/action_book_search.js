@@ -30,8 +30,7 @@ export function fetchBook(searchTerm) {
         .then(([response, json]) => {
             if(response.status === 200){
                 dispatch(fetchBooksSuccess(json))
-            }
-            else{
+            } else {
                 handleErrors(json)
             }
         })
@@ -46,7 +45,7 @@ function apiCall(searchTerm) {
 }
 function handleErrors(response) {
     if (!response.ok) {
-        throw Error(response.statusText);
+        throw Error(response.statusText)
     }
-    return response;
+    return response
 }

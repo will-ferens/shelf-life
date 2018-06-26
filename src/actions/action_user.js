@@ -1,34 +1,58 @@
+import { userConstants } from '../constants/constants_user'
+
 const AUTH_URL = 'http://localhost:3001/auth'
-export const alertConstants = {
-    SUCCESS: 'ALERT_SUCCESS',
-    ERROR: 'ALERT_ERROR',
-    CLEAR: 'ALERT_CLEAR'
-}
 
-export const userConstants = {
-    LOGIN_REQUEST: 'USERS_LOGIN_REQUEST',
-    LOGIN_SUCCESS: 'USERS_LOGIN_SUCCESS',
-    LOGIN_FAILURE: 'USERS_LOGIN_FAILURE',
-    
-    LOGOUT: 'USERS_LOGOUT',
 
-    GETALL_REQUEST: 'USERS_GETALL_REQUEST',
-    GETALL_SUCCESS: 'USERS_GETALL_SUCCESS',
-    GETALL_FAILURE: 'USERS_GETALL_FAILURE',
-}
+export const fetchUserBegin = () => ({
+    type: userConstants.LOGIN_REQUEST
+})
+
+export const fetchUserSuccess = user => ({
+    type: userConstants.LOGIN_SUCCESS,
+    payload: { user }
+})
+
+export const fetchUserFailure = error => ({
+    type: userConstants.LOGIN_FAILURE,
+    payload: { error }
+})
 
 export const userActions = {
     login,
     logout
 }
 
-function login(username, password){
-    const request = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-    }
+export function login(email, password){
     return dispatch => {
-
+        dispatch(fetchUserBegin())
+        return dbCall(email, password)
+        .then(([response, json]) => {
+            if(response.status === 200){
+                dispatch(fetchUserSuccess(json))
+            } else { 
+                handleErrors(json)
+            }
+        })
+        .catch(error => dispatch(fetchUserFailure(error)))
     }
+}
+
+function dbCall(email, password){
+    return fetch(AUTH_URL, 
+    {   method: 'POST',
+        headers: {'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+    })
+    .then( response => Promise.all([response, response.json()]))
+}
+
+function handleErrors(response){
+    if(!response.ok){
+        throw Error(response.statusText)
+    }
+    return response
+}
+
+export function logout(){
+
 }
