@@ -29,7 +29,7 @@ class SearchBar extends Component {
     render(){
         return (
             <section className="add-new-book">
-            <Link to="/"><button>Back to Your Books</button></Link>
+            <Link to="/books"><button>Back to Your Books</button></Link>
                 <form 
                     className="find-book"
                     onSubmit={this.onFormSubmit}>

@@ -1,8 +1,5 @@
 
-import { 
-    FETCH_BOOKS_BEGIN, 
-    FETCH_BOOKS_SUCCESS, 
-    FETCH_BOOKS_FAILURE } from '../constants/constants_book'
+import { fetchBookActions } from '../constants/constants_book'
     
 const API_KEY = 'AIzaSyAHWyKUtEptq99fnW9I7x2V7LOjrmgCnLk'
 const ROOT_URL = 'https://www.googleapis.com/books/v1/volumes?q='
@@ -10,16 +7,16 @@ const ROOT_URL = 'https://www.googleapis.com/books/v1/volumes?q='
 
 
 export const fetchBooksBegin = () => ({
-    type: FETCH_BOOKS_BEGIN
+    type: fetchBookActions.FETCH_BOOKS_BEGIN
 })
 
 export const fetchBooksSuccess = books => ({
-    type: FETCH_BOOKS_SUCCESS,
+    type: fetchBookActions.FETCH_BOOKS_SUCCESS,
     payload:  { books }
 })
 
 export const fetchBooksFailure = error => ({
-    type: FETCH_BOOKS_FAILURE,
+    type: fetchBookActions.FETCH_BOOKS_FAILURE,
     payload: { error }
 })
 

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import './style/index.css'
 
 import SearchBar from './containers/search_bar'
-import BookShow from './containers/book_show'
 import YourBooks from './containers/your_books'
 import Login from './containers/login'
 import Register from './containers/register'
@@ -30,20 +29,21 @@ const store = createStore(
     applyMiddleware(thunk)
 )
 
+
+
 ReactDOM.render(
     <Provider store={store} >
         <BrowserRouter>
-            <div>
+            <div id="app">
                 <Header />
-                <main>
-                    <Switch>
-                        <Route path="/login" component={Login} />
+                <Switch>
+                    <main>
                         <Route path="/register" component={Register} />
-                        <Route path="/book/:id" component={BookShow} />
                         <Route path="/search" component={SearchBar} />
                         <Route exact path="/books" component={YourBooks} />
-                    </Switch>
-                </main>
+                        <Route path="/login" component={Login} />
+                    </main>
+                </Switch>
                 <Footer />
             </div>
         </BrowserRouter>

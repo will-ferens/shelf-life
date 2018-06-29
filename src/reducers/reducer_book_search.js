@@ -1,7 +1,4 @@
-import {
-    FETCH_BOOKS_BEGIN,
-    FETCH_BOOKS_SUCCESS,
-    FETCH_BOOKS_FAILURE } from '../constants/constants_book'
+import { fetchBookActions } from '../constants/constants_book'
 
 const initialState = {
     newBooks: [],
@@ -12,7 +9,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        case FETCH_BOOKS_BEGIN:
+        case fetchBookActions.FETCH_BOOKS_BEGIN:
         return {
             ...state,
             initialized: false,
@@ -20,14 +17,14 @@ export default function(state = initialState, action) {
             error: null
         }
 
-        case FETCH_BOOKS_SUCCESS:
+        case fetchBookActions.FETCH_BOOKS_SUCCESS:
         return {
             ...state,
             loading: false,
             newBooks: [ action.payload.books ]
         }
 
-        case FETCH_BOOKS_FAILURE:
+        case fetchBookActions.FETCH_BOOKS_FAILURE:
         return {
             ...state,
             loading: false,

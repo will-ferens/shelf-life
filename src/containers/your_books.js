@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
+import BookShow  from './book_show'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { showBook } from '../actions/action_book_show'
+import { bindActionCreators } from 'redux'
 
 //<Link to="/book/:id">
 class YourBooks extends Component {
-
+    
     renderList() {
         return this.props.yourBooks.map((book) => {
             return (
                 <tr key={book.title} >
-                    <td>{book.title}</td>
+                    <td onClick={() => this.props.showBook(book)}>{book.title}</td>
                 </tr>
             )
         })
@@ -17,14 +20,17 @@ class YourBooks extends Component {
 
     render() {
         return (
-            <section className="existing-books">
-            <Link to="/search"><button>Find a Book</button></Link>
-            <table>
-                <tbody>
-                    {this.renderList()}
-                </tbody>
-            </table>
-            </section>
+            <div className="book-wrapper">
+                <section className="existing-books">
+                <Link to="/search"><button>Find a Book</button></Link>
+                <table>
+                    <tbody>
+                        {this.renderList()}
+                    </tbody>
+                </table>
+                </section>
+                <BookShow />
+            </div>
         )
     }
 }
@@ -35,4 +41,8 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(YourBooks)
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({showBook: showBook}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(YourBooks)

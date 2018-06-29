@@ -36,27 +36,35 @@ class Login extends Component {
 
     render(){
         return (
-            <div>
-                <h2>Login</h2>
-                <form name="login"
-                    className="login-form"
-                    onSubmit={this.onFormSubmit}>
-                    <label htmlFor="username">Username</label>
-                    <input 
-                        type="text"
-                        placeholder="Email"
-                        value={this.state.email}
-                        onChange={this.onEmailChange}  />
-                    <label htmlFor="password">Password</label>
-                    <input 
-                        type="text"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.onPasswordChange}  />
-                    <button type="submit">Submit</button>
-                </form>
-            <Link to="/register"><button>Or register</button></Link>
-            </div>
+            <section className="login">
+                <div className="login-title">
+                    <h2>Login</h2>
+                </div>
+                <div className="login-group">
+                    <form 
+                        name="login"
+                        className="login-form"
+                        onSubmit={this.onFormSubmit}>
+                        <label htmlFor="username">Email</label>
+                        <input 
+                            type="text"
+                            placeholder="Email"
+                            className="email-input"
+                            value={this.state.email}
+                            onChange={this.onEmailChange}  />
+                        <label htmlFor="password">Password</label>
+                        <input 
+                            type="text"
+                            placeholder="Password"
+                            className="password-input"
+                            value={this.state.password}
+                            onChange={this.onPasswordChange}  />
+                        <button type="submit" className="submit">Submit</button>
+                        <Link to="/register"><button className="register">Or register</button></Link>
+                    </form>
+                
+                </div>
+            </section>
         )
     }
 }

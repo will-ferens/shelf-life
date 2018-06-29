@@ -1,8 +1,23 @@
+import AddedBook from './reducer_book_added'
+
 export default function() { 
     return [
-        {title: 'Anna Karenina', author: 'Leo Tolstoy', pages: 1200},
-        {title: 'The End of Vandalism', author: 'Tom Drury', pages: 333},
-        {title: 'The Sellout', author: 'Paul Beatty', pages: 250},
-        {title: 'Nightwood', author: 'Djuana Barnes', pages: 122}
+        {
+            id: 'xyz',
+            title: 'Anna Karenina', 
+            author: 'Leo Tolstoy', 
+            categories: ['Fiction'], 
+            description: 'Goes ham on this shit', 
+            imageLinks: '',
+            ISBN: '',
+            pageCount: 1200,
+            readState: 'To Read',
+            liked: null,
+            tags: []
+        },
+        {title: 'The End of Vandalism', author: 'Tom Drury', pageCount: 333},
+        {title: 'The Sellout', author: 'Paul Beatty', pageCount: 250},
+        {title: 'Nightwood', author: 'Djuana Barnes', pageCount: 122},
+        AddedBook
     ]
 }

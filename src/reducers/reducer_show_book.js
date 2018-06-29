@@ -1,4 +1,4 @@
-import { BOOK_SELECTED } from '../actions/action_book_show'
+import { BOOK_SELECTED } from '../constants/constants_book'
 
 export default function(state = null, action) {
     switch(action.type){
