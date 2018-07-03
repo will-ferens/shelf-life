@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { addBook } from '../actions/action_add_book'
 import { connect } from 'react-redux'
 
 
@@ -6,20 +7,28 @@ export default class FoundBook extends Component {
     constructor(props){
         super(props)
         this.state = {
-
+            bookToBeAdded: {}
         }
-        this.handleAddBook = this.handleAddBook.bind(this)
+        
     }
 
-    handleAddBook() {
+    handleAddBook(book) {
+        const bookToBeAdded = {
+                title: book.title,
+                author: book.authors[0],
+                publisher: book.publisher,
+                cover: book.imageLinks.smallThumbnail,
+                pageCount: book.pageCount
+            }
 
+        addBook(bookToBeAdded)
     }
     render(){
         
         return (
             this.props.bookData.map(current => {
             const book = current.items[0].volumeInfo
-                console.log(current)
+
             return( 
                     <ul key={current.id} className="searched-book">
                         <li id="cover" key={book.imageLinks.smallThumbnail}><img src={book.imageLinks.smallThumbnail} alt={book.title} /></li>
@@ -32,7 +41,7 @@ export default class FoundBook extends Component {
                         </div>
                         
                         <div id="description"> <li>{book.description}</li></div>
-                        <button id="add-button" onClick={this.handleAddBook}>Add {book.title} to Your Shelf</button>
+                        <button id="add-button" onClick={() => {this.handleAddBook(book)}}>Add {book.title} to Your Shelf</button>
                     </ul>
                 )
         })

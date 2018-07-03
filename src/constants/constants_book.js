@@ -5,6 +5,12 @@ export const fetchBookActions = {
     FETCH_BOOKS_FAILURE: 'FETCH_BOOKS_FAILURE',
 }
 
+export const postBookActions = {
+    POST_BOOK: 'POST_BOOK',
+    POST_BOOK_BEGIN: 'POST_BOOK_BEGIN',
+    POST_BOOK_SUCCESS: 'POST_BOOK_SUCCESS',
+    POST_BOOK_FAILURE: 'POST_BOOK_FAILURE',
+}
 
 export const BOOK_SELECTED = 'BOOK_SELECTED'
 

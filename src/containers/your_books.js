@@ -19,7 +19,7 @@ class YourBooks extends Component {
     }
     handleSelectBook(book){
         this.props.showBook(book)
-
+        console.log(this.props.userId)
         this.setState({
             bookSelected: true
         })

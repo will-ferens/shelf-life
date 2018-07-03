@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './style/index.css'
-
+import {history} from './helpers/history'
 import SearchBar from './containers/search_bar'
 import YourBooks from './containers/your_books'
 import Login from './containers/login'
@@ -19,6 +19,7 @@ import {
     BrowserRouter, 
     Route, 
     Switch,
+    Router
 } from 'react-router-dom'
 
 import thunk from 'redux-thunk'
@@ -37,12 +38,14 @@ ReactDOM.render(
             <div id="app">
                 <Header />
                 <Switch>
-                    <main>
-                        <Route path="/register" component={Register} />
-                        <Route path="/search" component={SearchBar} />
-                        <Route path="/books" component={YourBooks} />
-                        <Route path="/login" component={Login} />
-                    </main>
+                    <Router history={history}>
+                        <main>
+                            <Route path="/register" component={Register} />
+                            <Route path="/search" component={SearchBar} />
+                            <Route path="/books" component={YourBooks} />
+                            <Route path="/login" component={Login} />
+                        </main>
+                    </Router>
                 </Switch>
                 <Footer />
             </div>
