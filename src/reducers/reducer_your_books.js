@@ -8,7 +8,7 @@ export default function() {
             author: 'Leo Tolstoy', 
             categories: ['Fiction'], 
             description: 'Goes ham on this shit', 
-            imageLinks: '',
+            imageLinks: {smallThumbnail: "http://books.google.com/books/content?id=dm8fqg9B8DEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"},
             ISBN: '',
             pageCount: 1200,
             readState: 'To Read',

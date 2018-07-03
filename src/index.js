@@ -40,7 +40,7 @@ ReactDOM.render(
                     <main>
                         <Route path="/register" component={Register} />
                         <Route path="/search" component={SearchBar} />
-                        <Route exact path="/books" component={YourBooks} />
+                        <Route path="/books" component={YourBooks} />
                         <Route path="/login" component={Login} />
                     </main>
                 </Switch>

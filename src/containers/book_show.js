@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addBook } from '../actions/action_add_book'
-import SearchBar from './search_bar'
+
 
 class BookShow extends Component {
     constructor(props){
@@ -13,38 +13,37 @@ class BookShow extends Component {
         this.handleAddBook = this.handleAddBook.bind(this)
     }
     componentDidMount(){
-        if(!this.props.book){
-            return
-        }
+        
         const book = this.props.book
+
         this.setState({
             bookToAdd: {
                 title: book.title,
-                author: book.author
+                author: book.author,
+                pageCount: book.pageCount
             }
         })
-        
+
     }
     handleAddBook(){
-        console.log(this.state.bookToAdd)
+        addBook(this.state.bookToAdd)
     }
 
     render() {
-        if(!this.props.book){
-            return <SearchBar />
-        }
+
         const book = this.props.book
 
         return (
             <div className="add-new-book">
             <ul className="searched-book">
-                <h1>{book.title}</h1>
-                {/*<li><img src={book.imageLinks.smallThumbnail} alt={book.title} /></li>*/}
-                <li >Title: {book.title}</li>
-                <li >Author: {book.author}</li>
-                <li >Pages: {book.pageCount}</li>
-                {/*<li>Description: <br/><span>{book.description}</span></li>*/}
-                <button onClick={this.handleAddBook}>Add Book</button>
+                <li id="cover"><img src={book.imageLinks.smallThumbnail} alt={book.title} /></li>
+                <div className="book-details">
+                    <li><h1>{book.title}</h1></li>
+                    <li><h3>{book.author}</h3></li>
+                    <li><small>Pages: {book.pageCount}</small></li>
+                    <li><p>Description: {book.description}</p></li>
+                </div>
+                <button id="add-button" onClick={this.handleAddBook}>Add Book</button>
             </ul>
             </div>
         )
