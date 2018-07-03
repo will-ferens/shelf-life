@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import BookShow  from './book_show'
 import SearchBar from './search_bar'
+
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { showBook } from '../actions/action_book_show'
 import { bindActionCreators } from 'redux'
 
@@ -19,7 +19,7 @@ class YourBooks extends Component {
     }
     handleSelectBook(book){
         this.props.showBook(book)
-        console.log(this.props.userId)
+        console.log(this.props)
         this.setState({
             bookSelected: true
         })
@@ -31,9 +31,9 @@ class YourBooks extends Component {
         })
     }
     renderList() {
-        return this.props.yourBooks.map((book) => {
+        return this.props.yourBooks.map((book, index) => {
             return (
-                <tr key={book.title} >
+                <tr key={index} >
                     <td onClick={() => this.handleSelectBook(book)}>{book.title}</td>
                 </tr>
             )
@@ -60,7 +60,8 @@ class YourBooks extends Component {
 
 function mapStateToProps(state) {
     return {
-        yourBooks: state.yourBooks
+        yourBooks: state.yourBooks,
+        userInfo: state.userInfo
     }
 }
 

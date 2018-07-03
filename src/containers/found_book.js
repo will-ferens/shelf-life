@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { addBook } from '../actions/action_add_book'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 
-export default class FoundBook extends Component {
+class FoundBook extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -21,16 +22,16 @@ export default class FoundBook extends Component {
                 pageCount: book.pageCount
             }
 
-        addBook(bookToBeAdded)
+        this.props.addBook(bookToBeAdded)
     }
     render(){
         
         return (
-            this.props.bookData.map(current => {
+            this.props.bookData.map((current, index) => {
             const book = current.items[0].volumeInfo
 
             return( 
-                    <ul key={current.id} className="searched-book">
+                    <ul key={index} className="searched-book">
                         <li id="cover" key={book.imageLinks.smallThumbnail}><img src={book.imageLinks.smallThumbnail} alt={book.title} /></li>
                         <div className="book-details">
                             <li key={book.title}><h3>{book.title}</h3></li>
@@ -48,3 +49,9 @@ export default class FoundBook extends Component {
         )
     }
 }
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({ addBook }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(FoundBook)

@@ -29,7 +29,6 @@ export function login(email, password){
         return dbCall(email, password)
         .then(([response, json]) => {
             if(response.status === 200){
-                console.log(json)
                 dispatch(fetchUserSuccess(json))
                 history.push('/books')
             } else { 

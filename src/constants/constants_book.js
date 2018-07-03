@@ -13,5 +13,3 @@ export const postBookActions = {
 }
 
 export const BOOK_SELECTED = 'BOOK_SELECTED'
-
-export const BOOK_ADDED = 'BOOK_ADDED'
