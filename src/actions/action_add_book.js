@@ -41,7 +41,7 @@ function dbCall(book){
     const publisher = book.publisher
     const cover = book.cover
     const pageCount = book.pageCount
-
+    const userId = book.userId.userId
     return fetch(ADD_URL,{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -50,7 +50,8 @@ function dbCall(book){
             author, 
             publisher, 
             cover, 
-            pageCount
+            pageCount,
+            userId
         })
     })
     .then( response => Promise.all([response, response.json()]))

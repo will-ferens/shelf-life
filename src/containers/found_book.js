@@ -19,7 +19,8 @@ class FoundBook extends Component {
                 author: book.authors[0],
                 publisher: book.publisher,
                 cover: book.imageLinks.smallThumbnail,
-                pageCount: book.pageCount
+                pageCount: book.pageCount,
+                userId: this.props.userInfo.userId
             }
 
         this.props.addBook(bookToBeAdded)
@@ -50,8 +51,13 @@ class FoundBook extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        userInfo: state.userInfo
+    }
+}
 function mapDispatchToProps(dispatch){
     return bindActionCreators({ addBook }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(FoundBook)
+export default connect(mapStateToProps, mapDispatchToProps)(FoundBook)
