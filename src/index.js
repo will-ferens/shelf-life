@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './style/index.css'
-import {history} from './helpers/history'
+import { history } from './helpers/history'
 import SearchBar from './containers/search_bar'
 import YourBooks from './containers/your_books'
 import Login from './containers/login'
 import Register from './containers/register'
+import { PrivateRoute } from './components/private_route'
 import Header from './components/header'
 import Footer from './components/footer'
 
@@ -40,9 +41,8 @@ ReactDOM.render(
                 <Switch>
                     <Router history={history}>
                         <main>
+                            <PrivateRoute exact path="/" component={YourBooks} />
                             <Route path="/register" component={Register} />
-                            <Route path="/search" component={SearchBar} />
-                            <Route path="/books" component={YourBooks} />
                             <Route path="/login" component={Login} />
                         </main>
                     </Router>

@@ -1,7 +1,7 @@
 import { userConstants } from '../constants/constants_user'
 import { history } from '../helpers/history'
 
-const AUTH_URL = 'http://localhost:3001/auth'
+const AUTH_URL = 'http://localhost:3001/login'
 
 
 export const fetchUserBegin = () => ({
@@ -10,7 +10,7 @@ export const fetchUserBegin = () => ({
 
 export const fetchUserSuccess = user => ({
     type: userConstants.LOGIN_SUCCESS,
-    payload: { user }
+    payload: { user },
 })
 
 export const fetchUserFailure = error => ({
@@ -27,12 +27,14 @@ export function login(email, password){
     return dispatch => {
         dispatch(fetchUserBegin())
         return dbCall(email, password)
-        .then(([response, json]) => {
+        .then(([response, user]) => {
             if(response.status === 200){
-                dispatch(fetchUserSuccess(json))
-                history.push('/books')
+                localStorage.setItem('id_token', user.token)
+                console.log(user)
+                dispatch(fetchUserSuccess(user))
+                history.push('/')
             } else { 
-                handleErrors(json)
+                handleErrors(user)
             }
         })
         .catch(error => dispatch(fetchUserFailure(error)))
@@ -55,6 +57,22 @@ function handleErrors(response){
     return response
 }
 
-export function logout(){
+export const requestLogout = () => ({
+    type: userConstants.LOGOUT_REQUEST
+})
 
+export const receiveLogout = () => ({
+    type: userConstants.LOGOUT_SUCCESS
+})
+
+export const failedLogout = () => ({
+    type: userConstants.LOGOUT_FAILURE
+})
+
+export function logout(){
+    return dispatch => {
+        dispatch(requestLogout())
+        localStorage.removeItem('id_token')
+        dispatch(receiveLogout())
+    }
 }

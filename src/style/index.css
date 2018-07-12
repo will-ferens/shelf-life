@@ -1,35 +1,34 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
+  
 }
 
-
-#root {
+#app {
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  grid-gap: 16px;
   height: 100vh;
   width: 100vw;
-  font-family: sans-serif;
 }
-#app {
-  height: 0;
-}
-
 /* ============= HEADER ====================== */
 
 header {
-  display: grid;
-  grid-row: 1 / 3;
-  grid-template-columns: 25% 50% 15%;
-  grid-template-rows: 50% 50%;
+  grid-row: 1;
+  grid-column: 1 / 4;
+  grid-template-columns: 25% 50% 25%;
   padding-top: 10px;
 }
 
 /* ============= MAIN ======================== */
 main {
+  grid-row: 2;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   
-  height: 70vh;
-  width: 100vw;
-  background-color: #eeeeee;
-}
+} 
 .book-wrapper {
   display: grid;
   grid-template-columns: 5% 42.5% 5% 42.5% 5%;
@@ -77,47 +76,44 @@ main {
 }
 
 /*=============== LOGIN ====================== */
+.login-wrapper {
+  grid-column: 1 / 4;
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../assets/booksOpt.jpg');
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 .login {
-  display: grid;
-  grid-column: 2 / 5;
+  grid-column: 1 / 4;
+  justify-self: center;
   align-self: center;
-
-}
-.login-title {
-  display: grid;
-  grid-column: 2 / 2;
-}
-
-.login-group {
-  grid-column: 4 / 4;
-  width: 300px;
+  background-color: #A8AAFF;
   border: 1px solid black;
-
 }
+
 .login-form {
-  padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  width: 300px;
+  display: grid;
   grid-gap: 16px;
 }
-
+.title {
+  padding: 0px 10px;
+}
 .login-form, label {
+  grid-column: 1 / 2;
+}
+.login-form, input {
   grid-column: 1 / 3;
 }
-.email-input {
-  grid-column: 1 / 3;
-}
-.password-input {
-  grid-column: 1 / 3;
-}
-
 .submit {
   grid-column: 1 / 2;
   width: 100%;
 }
-.register {
-  grid-column: 2 / 3;
-  width: 100%;
+.login-link {
+  grid-column: 2 / 2;
+  width: 100%
 }
 
 /* ============= FOOTER ====================== */
@@ -133,12 +129,9 @@ main {
   fill: black;
 }
 footer {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
+  grid-row: 3;
+  grid-column: 1 / 4;
   padding: 5px;
-  display: grid;
   grid-template-columns: 25% 50% 15%;
-  grid-template-rows: 50% 50%;
   padding-top: 10px;
 }
