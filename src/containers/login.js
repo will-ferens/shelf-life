@@ -39,7 +39,7 @@ class Login extends Component {
             <section className="login-wrapper">
                 <div className="login">
                         <div className="title">
-                            <h2>Login</h2>
+                            <h2 className="title-text">Login</h2>
                         </div>
                             <form 
                                 name="login"
@@ -48,14 +48,12 @@ class Login extends Component {
                                 <label htmlFor="username">Email</label>
                                 <input 
                                     type="text"
-                                    placeholder="Email"
                                     className="email-input"
                                     value={this.state.email}
                                     onChange={this.onEmailChange}  />
                                 <label htmlFor="password">Password</label>
                                 <input 
-                                    type="text"
-                                    placeholder="Password"
+                                    type="password"
                                     className="password-input"
                                     value={this.state.password}
                                     onChange={this.onPasswordChange}  />

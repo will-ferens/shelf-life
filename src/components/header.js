@@ -3,7 +3,9 @@ import React from 'react'
 const Header = () => {
     return (
         <header>
-            <h1>Shelf Life</h1>
+            <div className="header-title">
+                <h1>Shelf Life</h1>
+            </div>
         </header>
     )
 }

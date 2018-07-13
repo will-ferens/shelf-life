@@ -32,6 +32,7 @@ export function login(email, password){
                 localStorage.setItem('id_token', user.token)
                 console.log(user)
                 dispatch(fetchUserSuccess(user))
+                //GET user books
                 history.push('/')
             } else { 
                 handleErrors(user)

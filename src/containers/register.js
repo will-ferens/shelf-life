@@ -51,36 +51,32 @@ class Register extends Component {
             <section className="login-wrapper">
                 <div className="login">
                     <div className="title">
-                        <h2>Register</h2>
+                        <h2 className="title-text">Register</h2>
                     </div>
                     <form 
                         className="login-form"
                         onSubmit={this.onFormSubmit}>
                         <label htmlFor="email">Email</label>
                         <input
-                            placeholder="Email"
                             type="text"
                             value={this.state.email}
                             onChange={this.onEmailChange} 
                             />
                         <label htmlFor="username">Username</label>
                         <input 
-                            placeholder="Username"
                             type="text"  
                             value={this.state.username}
                             onChange={this.onUsernameChange}
                             />
                         <label htmlFor="password">Password</label>
                         <input
-                            placeholder="Password"
-                            type="text"
+                            type="password"
                             value={this.state.password}
                             onChange={this.onPasswordChange} 
                             />
                         <label htmlFor="confirm password">Confim Password</label>
                         <input 
-                            placeholder="Confim Password"
-                            type="text" 
+                            type="password" 
                             value={this.passwordConf}
                             onChange={this.onPasswordConfChange}
                             />
