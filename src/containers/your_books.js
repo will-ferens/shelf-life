@@ -1,58 +1,32 @@
 import React, { Component } from 'react'
-import BookShow  from './book_show'
-import SearchBar from './search_bar'
+import BookTable from '../components/book_table'
 
 import { connect } from 'react-redux'
-import { showBook } from '../actions/action_book_show'
 import { bindActionCreators } from 'redux'
+import { fetchUserBooks } from '../actions/action_get_user_books'
 
 //<Link to="/book/:id">
 class YourBooks extends Component {
     constructor(props){
         super(props)
 
-        this.state = {
-            bookSelected: false
+    }
+
+    componentDidMount(){
+        this.props.fetchUserBooks()
+    }
+
+    render(){
+        const { error, loading, books } = this.props.UserBooks
+        if(error) {
+            return <div>{error.message}</div>
         }
-    
-
-    }
-    handleSelectBook(book){
-        this.props.showBook(book)
-        console.log(this.props)
-        this.setState({
-            bookSelected: true
-        })
-    }
-
-    findBookClick(){
-        this.setState({
-            bookSelected: false
-        })
-    }
-    renderList() {
-        return this.props.yourBooks.map((book, index) => {
-            return (
-                <tr key={index} >
-                    <td onClick={() => this.handleSelectBook(book)}>{book.title}</td>
-                </tr>
-            )
-        })
-    }
-
-    render() {
-        const bookSelected = this.state.bookSelected
-        return (
-            <div className="book-wrapper">
-                <section className="existing-books">
-                <button onClick={() => this.findBookClick()}>Find a Book</button>
-                <table>
-                    <tbody>
-                        {this.renderList()}
-                    </tbody>
-                </table>
-                </section>
-                {bookSelected ? <BookShow /> : <SearchBar />}
+        if(loading) {
+            return <div>loading... </div>
+        }
+        return ( 
+            <div>
+                <BookTable books={books.books} />
             </div>
         )
     }
@@ -60,13 +34,14 @@ class YourBooks extends Component {
 
 function mapStateToProps(state) {
     return {
-        yourBooks: state.yourBooks,
-        userInfo: state.userInfo
+        userInfo: state.userInfo,
+        UserBooks: state.UserBooks
     }
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({showBook: showBook}, dispatch)
+    return bindActionCreators({ fetchUserBooks: fetchUserBooks }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(YourBooks)
+

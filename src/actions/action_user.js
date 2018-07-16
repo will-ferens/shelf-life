@@ -26,23 +26,21 @@ export const userActions = {
 export function login(email, password){
     return dispatch => {
         dispatch(fetchUserBegin())
-        return dbCall(email, password)
-        .then(([response, user]) => {
-            if(response.status === 200){
-                localStorage.setItem('id_token', user.token)
-                console.log(user)
-                dispatch(fetchUserSuccess(user))
-                //GET user books
-                history.push('/')
-            } else { 
-                handleErrors(user)
-            }
-        })
-        .catch(error => dispatch(fetchUserFailure(error)))
+        return findUser(email, password)
+            .then(([response, user]) => {
+                if(response.status === 200){
+                    localStorage.setItem('id_token', user.token)
+                    dispatch(fetchUserSuccess(user))
+                    history.push('/')
+                } else { 
+                    handleErrors(user)
+                }
+            })
+            .catch(error => dispatch(fetchUserFailure(error)))
     }
 }
 
-function dbCall(email, password){
+function findUser(email, password){
     return fetch(AUTH_URL, 
     {   method: 'POST',
         headers: {'Content-Type': 'application/json' },
@@ -50,6 +48,7 @@ function dbCall(email, password){
     })
     .then( response => Promise.all([response, response.json()]))
 }
+
 
 function handleErrors(response){
     if(!response.ok){

@@ -19,13 +19,14 @@ header {
   grid-column: 1 / 4;
   display: grid;
   grid-template-columns: 25% 50% 25%;
+  background-color: #6815E5;
   padding-top: 10px;
 }
 
 .header-title {
   grid-column: 1 / 1;
   margin-top: none;
-  background-color: #6815E5;
+  
   color: white;
 }
 
@@ -37,50 +38,9 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   
 } 
-.book-wrapper {
-  display: grid;
-  grid-template-columns: 5% 42.5% 5% 42.5% 5%;
-}
-
-.existing-books {
-  grid-column: 2 / 2;
-}
-
-.add-new-book {
-  grid-column: 4 / 4;
-}
-
-.find-book {
-  grid-column: 2 / 3;
-  grid-row: 2;
-
-}
-.searched-book {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1 2fr;
-  grid-gap: 1em;
-  justify-items: flex-start;
+.user-books {
   list-style: none;
-  margin: 0;
-}
-#cover {
-  justify-self: center;
-  margin-top: 25px;
-}
-#description {
-  grid-row: 2;
-  grid-column: 1 / 3;
-  overflow: auto;
-  height: 200px;
-}
-
-#add-button {
-  grid-column: 1 / 3;
-}
-.written {
-  text-align: center;
-  padding-top: 17px;
+  padding-left: 20px;
 }
 
 /*=============== LOGIN ====================== */

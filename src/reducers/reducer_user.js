@@ -17,12 +17,12 @@ export default function(state = initialState, action) {
             }
 
         case userConstants.LOGIN_SUCCESS:
-        return {
-            ...state,
-            loading: false,
-            isAuthenticated: true,
-            user: action.payload.user 
-        }
+            return {
+                ...state,
+                loading: false,
+                isAuthenticated: true,
+                user: action.payload.user
+            }
 
         case userConstants.LOGIN_FAILURE:
             return {
@@ -38,7 +38,7 @@ export default function(state = initialState, action) {
             }
 
         default: 
-        return state
+            return state
 
     }
 }

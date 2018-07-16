@@ -58,24 +58,28 @@ class Register extends Component {
                         onSubmit={this.onFormSubmit}>
                         <label htmlFor="email">Email</label>
                         <input
+                            required
                             type="text"
                             value={this.state.email}
                             onChange={this.onEmailChange} 
                             />
                         <label htmlFor="username">Username</label>
                         <input 
+                            required
                             type="text"  
                             value={this.state.username}
                             onChange={this.onUsernameChange}
                             />
                         <label htmlFor="password">Password</label>
                         <input
+                            required
                             type="password"
                             value={this.state.password}
                             onChange={this.onPasswordChange} 
                             />
                         <label htmlFor="confirm password">Confim Password</label>
                         <input 
+                            required
                             type="password" 
                             value={this.passwordConf}
                             onChange={this.onPasswordConfChange}

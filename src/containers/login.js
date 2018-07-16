@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { userActions } from '../actions/action_user'
 
+
+
 const login = userActions.login
 class Login extends Component {
     constructor(props){
@@ -47,12 +49,14 @@ class Login extends Component {
                                 onSubmit={this.onFormSubmit}>
                                 <label htmlFor="username">Email</label>
                                 <input 
+                                    required
                                     type="text"
                                     className="email-input"
                                     value={this.state.email}
                                     onChange={this.onEmailChange}  />
                                 <label htmlFor="password">Password</label>
                                 <input 
+                                    required
                                     type="password"
                                     className="password-input"
                                     value={this.state.password}

@@ -5,6 +5,13 @@ export const fetchBookActions = {
     FETCH_BOOKS_FAILURE: 'FETCH_BOOKS_FAILURE',
 }
 
+export const fetchUserBookActions = {
+    FETCH_BOOK: 'FETCH_BOOK',
+    FETCH_BOOKS_BEGIN: 'FETCH_BOOKS_BEGIN',
+    FETCH_BOOKS_SUCCESS: 'FETCH_BOOKS_SUCCESS',
+    FETCH_BOOKS_FAILURE: 'FETCH_BOOKS_FAILURE',
+}
+
 export const postBookActions = {
     POST_BOOK: 'POST_BOOK',
     POST_BOOK_BEGIN: 'POST_BOOK_BEGIN',
