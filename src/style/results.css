@@ -1,0 +1,9 @@
+.result-list {
+    list-style: none;
+    padding: 0;
+}
+
+.list-item:hover {
+    border: 1px solid black;
+
+}

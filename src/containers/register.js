@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { registerActions } from '../actions/action_register'
 
+import '../style/login.css'
+
 const register = registerActions.register
 class Register extends Component {
     constructor(props){

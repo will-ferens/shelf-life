@@ -23,23 +23,22 @@ export const fetchBooksFailure = error => ({
 export function fetchBook(searchTerm) {
     return dispatch => {
         dispatch(fetchBooksBegin())
-        return apiCall(searchTerm)
-        .then(([response, json]) => {
+        const url = `${ROOT_URL}${searchTerm}&key=${API_KEY}`
+        fetch(url, { method: 'GET' })
+        .then(response => {
             if(response.status === 200){
-                dispatch(fetchBooksSuccess(json))
+                return response.json()
             } else {
-                handleErrors(json)
+                handleErrors(response.json())
             }
+        }).then (response => {
+            dispatch(fetchBooksSuccess(response))
         })
         .catch(error => dispatch(fetchBooksFailure(error)))
     }
 }
 
-function apiCall(searchTerm) {
-    const url = `${ROOT_URL}${searchTerm}&key=${API_KEY}`
-    return fetch(url, { method: 'GET' })
-    .then( response => Promise.all([response, response.json()]))
-}
+
 function handleErrors(response) {
     if (!response.ok) {
         throw Error(response.statusText)

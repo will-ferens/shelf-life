@@ -1,0 +1,14 @@
+header {
+    grid-row: 1;
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-color: #6815E5;
+    padding-top: 10px;
+}
+
+.header-title {
+    grid-column: 1;
+    margin-top: none;
+    color: white;
+}

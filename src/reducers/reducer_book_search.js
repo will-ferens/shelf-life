@@ -1,7 +1,7 @@
 import { fetchBookActions } from '../constants/constants_book'
 
 const initialState = {
-    newBooks: [],
+
     initialized: true,
     loading: false,
     error: null
@@ -28,8 +28,7 @@ export default function(state = initialState, action) {
         return {
             ...state,
             loading: false,
-            error: action.payload.error,
-            newBooks: []
+            error: action.payload.error
         }
 
         default:

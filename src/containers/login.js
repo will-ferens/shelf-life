@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { userActions } from '../actions/action_user'
 
-
+import '../style/login.css'
 
 const login = userActions.login
 class Login extends Component {

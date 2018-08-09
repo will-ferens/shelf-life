@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchBook } from '../actions/action_book_search'
 
-import ReturnedBooks from './returned_books'
+import SearchReturn from '../components/search_return'
 
 class SearchBar extends Component {
     constructor(props){
@@ -11,10 +11,10 @@ class SearchBar extends Component {
         
         this.state = { 
             term: '',
-            foundBook: {}
     }
         this.onInputChange = this.onInputChange.bind(this)
         this.onFormSubmit = this.onFormSubmit.bind(this)
+
     }
 
     
@@ -27,12 +27,14 @@ class SearchBar extends Component {
 
         this.props.fetchBook(this.state.term)
         this.setState({ term: '' })
+
     }
 
     
     render(){
         return (
             <section className="add-new-book">
+                <h2>Search for New Books</h2>
                 <form 
                     className="find-book"
                     onSubmit={this.onFormSubmit}>
@@ -42,14 +44,23 @@ class SearchBar extends Component {
                         onChange={this.onInputChange} />
                     <button type="submit">Submit</button>
                 </form>
-                <ReturnedBooks />
+                
+                <SearchReturn 
+                    searchedBook={this.props.searchedBook} 
+                    onBookSelect={this.props.onBookSelect} />
                 
             </section>
         )
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        searchedBook: state.searchedBook
+    }
+}
+
 function mapDispatchToProps(dispatch){
     return bindActionCreators({ fetchBook }, dispatch)
 }
-export default connect(null, mapDispatchToProps)(SearchBar)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)

@@ -2,15 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './style/index.css'
 import { history } from './helpers/history'
-import SearchBar from './containers/search_bar'
-import YourBooks from './containers/your_books'
+
+import YourBooks from './containers/home'
 import Login from './containers/login'
 import Register from './containers/register'
 import { PrivateRoute } from './components/private_route'
 import Header from './components/header'
 import Footer from './components/footer'
-
-
 
 import registerServiceWorker from './registerServiceWorker'
 
@@ -30,8 +28,6 @@ const store = createStore(
     rootReducer,
     applyMiddleware(thunk)
 )
-
-
 
 ReactDOM.render(
     <Provider store={store} >
