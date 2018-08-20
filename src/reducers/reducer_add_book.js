@@ -16,7 +16,7 @@ export default function(state = initialState, action) {
         case postBookActions.POST_BOOK_SUCCESS:
             return {
                 ...state,
-                loading: false
+                loading: false,
             }
         case postBookActions.POST_BOOK_FAILURE:
             return {

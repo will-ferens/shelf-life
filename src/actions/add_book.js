@@ -1,9 +1,8 @@
-import axios from 'axios'
 import { postBookActions } from '../constants/constants_book'
 
 export const ADD_BOOK = 'ADD_BOOK'
 
-const ADD_URL = 'http://localhost:3001/addbook'
+const ADD_URL = 'http://localhost:3001/books/addbook'
 
 export const addBookBegin = () => ({
     type: postBookActions.POST_BOOK_BEGIN
@@ -21,6 +20,7 @@ export const addBookFailure = error => ({
 
 
 export function addBook(book){
+    const id_token = localStorage.getItem('id_token')
     return dispatch => {
         dispatch(addBookBegin())
         return fetch(ADD_URL, {
@@ -32,11 +32,7 @@ export function addBook(book){
             body: JSON.stringify({ book })
         })
         .then( response => {
-            if(response.status == 201){
-                return response.json()
-            } else {
-                handleErrors(response.json())
-            }
+            return response.json()
         })
         .then(response => {
             dispatch(addBookSuccess(response))
