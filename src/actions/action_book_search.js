@@ -1,4 +1,3 @@
-
 import { fetchBookActions } from '../constants/constants_book'
     
 const API_KEY = 'AIzaSyAHWyKUtEptq99fnW9I7x2V7LOjrmgCnLk'
@@ -37,7 +36,6 @@ export function fetchBook(searchTerm) {
         .catch(error => dispatch(fetchBooksFailure(error)))
     }
 }
-
 
 function handleErrors(response) {
     if (!response.ok) {

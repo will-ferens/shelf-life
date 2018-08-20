@@ -1,36 +1,29 @@
-import { fetchBookActions } from '../constants/constants_book'
+import { postBookActions } from '../constants/constants_book'
 
 const initialState = {
-
-    initialized: true,
     loading: false,
     error: null
 }
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        case fetchBookActions.FETCH_BOOKS_BEGIN:
+        case postBookActions.POST_BOOK_BEGIN:
             return {
                 ...state,
-                initialized: false,
                 loading: true,
                 error: null
             }
-
-        case fetchBookActions.FETCH_BOOKS_SUCCESS:
+        case postBookActions.POST_BOOK_SUCCESS:
             return {
                 ...state,
-                loading: false,
-                newBooks: [ action.payload.books ]
+                loading: false
             }
-
-        case fetchBookActions.FETCH_BOOKS_FAILURE:
+        case postBookActions.POST_BOOK_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.payload.error
             }
-
         default:
             return state
     }
