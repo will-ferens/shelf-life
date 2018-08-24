@@ -9,9 +9,9 @@ const ResultList = (props) => {
             return results.items.map(books => {
                 return (
                     <ResultItem 
-                    key={books.id}
-                    books={books}  
-                    onBookSelect={props.onBookSelect} />
+                        key={books.id}
+                        books={books}  
+                        onBookSelect={props.onBookSelect} />
                 )
             })
             

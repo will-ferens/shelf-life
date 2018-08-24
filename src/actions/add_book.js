@@ -22,6 +22,7 @@ export const addBookFailure = error => ({
 export function addBook(book){
     const id_token = localStorage.getItem('id_token')
     return dispatch => {
+        console.log(JSON.stringify( book ))
         dispatch(addBookBegin())
         return fetch(ADD_URL, {
             method: 'POST',
@@ -29,9 +30,9 @@ export function addBook(book){
                 'Authorization': 'Bearer ' + id_token,
                 'Content-Type': 'application/json'
             }),
-            body: JSON.stringify({ book })
+            body: JSON.stringify( book )
         })
-        .then( response => {
+        .then(response => {
             return response.json()
         })
         .then(response => {

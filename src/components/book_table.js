@@ -1,21 +1,33 @@
 import React from 'react'
+import BookItem from './book_item'
 
 
-const BookTable = props => {
+const BookTable = (props) => {
     const { books } = props
 
-    if(!books) return null
-
-    if(!books.length) return (<p>Add some books to get started!</p>)
-
-    return books.map((book, index) => {
-        return (
-            <li key={index} className="user-books" >
-                <h6>{book.title}</h6>
-            </li>
-        )
-    })
-    
+    if(!books){ 
+        return <div></div> 
+    }
+    if(books.error) {
+        return <div>Whoops! Something went wrong.</div>
+    }
+    if(books.loading) {
+        return <div>Loading...</div>
+    }
+    if(books.userBooks != null) {
+        return books.userBooks.map((book, index) => {
+            return (
+                <BookItem 
+                    book={book} 
+                    key={book._id} 
+                    onUserBookSelect={props.onUserBookSelect}
+                    />
+            )
+        })
+    }
+    if(books){ 
+        return <div></div> 
+    }
 }
 
 export default BookTable

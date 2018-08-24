@@ -9,10 +9,6 @@ class SelectedBook extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            selectedBook: { }
-        }
-
             this.onAddButtonPressed = this.onAddButtonPressed.bind(this)
     }
     
@@ -27,8 +23,8 @@ class SelectedBook extends Component {
             return current.identifier
         }).join("")
         
-        this.setState({ 
-            selectedBook: {
+
+        const selectedBook = {
                 title: book.volumeInfo.title,
                 author: book.volumeInfo.authors[0],
                 publisher: book.volumeInfo.publisher,
@@ -36,13 +32,15 @@ class SelectedBook extends Component {
                 ISBN: isbn,
                 pageCount: book.volumeInfo.pageCount,
             }
-        })
-        this.props.addBook(this.state.selectedBook)
+        
+            console.log(selectedBook)
+        this.props.addBook(selectedBook)
     }
 
     render (){
         const book = this.props.selectedBook
-        
+        console.log(book)
+
         if(book != null){
 
             const coverImage = book.volumeInfo.imageLinks  ? (
@@ -88,4 +86,4 @@ function mapDispatchToProps(dispatch){
     return bindActionCreators({ addBook }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps) (SelectedBook)
+export default connect(null, mapDispatchToProps)(SelectedBook)

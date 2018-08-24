@@ -37,9 +37,9 @@ ReactDOM.render(
                 <Switch>
                     <Router history={history}>
                         <main>
-                            <PrivateRoute exact path="/" component={YourBooks} />
                             <Route path="/register" component={Register} />
                             <Route path="/login" component={Login} />
+                            <PrivateRoute exact path="/" component={YourBooks} />
                         </main>
                     </Router>
                 </Switch>
