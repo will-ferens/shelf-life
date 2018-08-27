@@ -18,9 +18,7 @@ const SearchReturn = (props) => {
         if(newBooks)
             return (
                 <div>
-                    <ResultList 
-                        newBooks={newBooks}
-                        onBookSelect={props.onBookSelect} />
+                    <ResultList newBooks={newBooks} />
                 </div>
             )
 

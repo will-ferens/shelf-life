@@ -45,9 +45,7 @@ class SearchBar extends Component {
                     <button type="submit">Submit</button>
                 </form>
                 
-                <SearchReturn 
-                    searchedBook={this.props.searchedBook} 
-                    onBookSelect={this.props.onBookSelect} />
+                <SearchReturn searchedBook={this.props.searchedBook} />
                 
             </section>
         )

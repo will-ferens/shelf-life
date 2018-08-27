@@ -1,5 +1,5 @@
 import React from 'react'
-import BookItem from './book_item'
+import BookItem from '../containers/book_item'
 
 
 const BookTable = (props) => {
@@ -20,7 +20,6 @@ const BookTable = (props) => {
                 <BookItem 
                     book={book} 
                     key={book._id} 
-                    onUserBookSelect={props.onUserBookSelect}
                     />
             )
         })

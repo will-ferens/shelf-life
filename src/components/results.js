@@ -1,5 +1,5 @@
 import React from 'react'
-import ResultItem from './result_item'
+import ResultItem from '../containers/result_item'
 
 import '../style/results.css'
 
@@ -11,7 +11,7 @@ const ResultList = (props) => {
                     <ResultItem 
                         key={books.id}
                         books={books}  
-                        onBookSelect={props.onBookSelect} />
+                    />
                 )
             })
             

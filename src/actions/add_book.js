@@ -22,7 +22,6 @@ export const addBookFailure = error => ({
 export function addBook(book){
     const id_token = localStorage.getItem('id_token')
     return dispatch => {
-        console.log(JSON.stringify( book ))
         dispatch(addBookBegin())
         return fetch(ADD_URL, {
             method: 'POST',
@@ -42,9 +41,3 @@ export function addBook(book){
     }
 }
 
-function handleErrors(response) {
-    if (!response.ok) {
-        throw Error(response.statusText)
-    }
-    return response
-}

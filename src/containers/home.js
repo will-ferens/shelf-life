@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import BookTable from '../components/book_table'
 import SearchBar from './search_bar'
 import SelectedBook from './selected_book'
-import SelectedUserBook from './selected_user_book'
 import { fetchUserBooks } from '../actions/fetch_user_books'
 
 import { connect } from 'react-redux'
@@ -15,12 +14,16 @@ class YourBooks extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            selectedBook: null,
-            selectedUserBook: null
-        }
+        
         this.props.fetchUserBooks()
         
+
+    }
+    componentWillUnmount() {
+        window.onbeforeunload = function(event) {
+            console.log('poop')
+            return localStorage.removeItem('id_token')
+        }
     }
 
     render(){
@@ -30,17 +33,13 @@ class YourBooks extends Component {
                 <div className="book-table">
                     <h2>Your Books</h2>
                     <BookTable 
-                        books={this.props.userBooks} 
-                        onUserBookSelect = {selectedUserBook => this.setState({selectedUserBook, selectedBook: null})} />
+                        books={this.props.userBooks} />
                 </div>
                 <div className="search">
-                <SearchBar 
-                    onBookSelect = {selectedBook => this.setState({selectedBook, selectedUserBook: null})}
-                />
+                <SearchBar />
                 </div>
                 <div className="selected-book">
-                    <SelectedBook selectedBook={this.state.selectedBook}/>
-                    <SelectedUserBook selectedUserBook={this.state.selectedUserBook} />>
+                    <SelectedBook />
                 </div>
                 
             </div>
