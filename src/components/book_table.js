@@ -17,12 +17,16 @@ const BookTable = (props) => {
     if(books.userBooks != null) {
         return books.userBooks.map((book, index) => {
             return (
-                <BookItem 
-                    book={book} 
-                    key={book._id} 
-                    />
+                <div key={1}>
+                    <h3>To Read</h3>
+                    <BookItem 
+                        book={book} 
+                        key={book._id} 
+                        />
+                </div>
             )
         })
+
     }
     if(books){ 
         return <div></div> 
@@ -30,3 +34,11 @@ const BookTable = (props) => {
 }
 
 export default BookTable
+
+// <div key={1}>
+//                     <h3>To Read</h3>
+//                     <BookItem 
+//                         book={book} 
+//                         key={book._id} 
+//                         />
+//              </div>

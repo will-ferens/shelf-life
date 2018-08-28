@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import BookTable from '../components/book_table'
 import SearchBar from './search_bar'
 import SelectedBook from './selected_book'
+
 import { fetchUserBooks } from '../actions/fetch_user_books'
 
 import { connect } from 'react-redux'
@@ -48,9 +49,10 @@ class YourBooks extends Component {
 }
 
 function mapStateToProps(state) {
+
     return {
         userInfo: state.userInfo,
-        userBooks: state.UserBooks
+        userBooks: state.UserBooks,
     }
 }
 

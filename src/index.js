@@ -7,6 +7,7 @@ import YourBooks from './containers/home'
 import Login from './containers/login'
 import Register from './containers/register'
 import { PrivateRoute } from './components/private_route'
+import Landing from './components/landing'
 import Header from './components/header'
 import Footer from './components/footer'
 
@@ -24,6 +25,7 @@ import {
 import thunk from 'redux-thunk'
 import rootReducer from './reducers/index'
 
+
 const store = createStore(
     rootReducer,
     applyMiddleware(thunk)
@@ -37,9 +39,11 @@ ReactDOM.render(
                 <Switch>
                     <Router history={history}>
                         <main>
+                            
                             <Route path="/register" component={Register} />
                             <Route path="/login" component={Login} />
-                            <PrivateRoute exact path="/" component={YourBooks} />
+                            <PrivateRoute exact path="/home" component={YourBooks} />
+                            <Route path="/" component={Landing} />
                         </main>
                     </Router>
                 </Switch>
