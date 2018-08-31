@@ -51,7 +51,7 @@ class SelectedBook extends Component {
         const bookId = this.props.UserSelecetedBook._id
 
         this.props.deleteBook(bookId)
-        window.location.reload(true)
+
     }
 
     onToReadButtonPressed(event) {
@@ -120,9 +120,9 @@ class SelectedBook extends Component {
         
         else if(userBook != null) {
             
-            const toReadButton = <button className="update-button" onClick={this.onToReadButtonPressed}>To Read</button>
-            const readingButton = <button className="update-button" onClick={this.onReadingButtonPressed}>Reading</button>
-            const readButton = <button className="update-button" onClick={this.onReadButtonPressed}>Read</button>
+            const toReadButton = <button className="update-button" onClick={this.onToReadButtonPressed}>Mark as To Read</button>
+            const readingButton = <button className="update-button" onClick={this.onReadingButtonPressed}>Mark as Reading</button>
+            const readButton = <button className="update-button" onClick={this.onReadButtonPressed}>Mark as Read</button>
 
             const update = userBook.readState === "ToRead" ? readingButton : userBook.readState === "Reading" ? readButton : toReadButton
 
@@ -143,7 +143,6 @@ class SelectedBook extends Component {
                     </div>
                     <div className="user-book-body">
                         <span><i>Description:</i> {userBook.description}</span>
-                        <button className="add-button">Update</button>
                         <button className="remove-button" onClick={this.onDeleteButtonPressed}>Remove from Shelf</button>
                     </div>
                     <div>

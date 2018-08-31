@@ -3,6 +3,7 @@ import { fetchUserBookActions } from '../constants/constants_book'
 const initialState = {
     loading: false, 
     error: null,
+    userBooks: []
 }
 
 export default function(state = initialState, action) {

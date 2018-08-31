@@ -1,7 +1,6 @@
 import { fetchBookActions } from '../constants/constants_book'
 
 const initialState = {
-
     initialized: true,
     loading: false,
     error: null
