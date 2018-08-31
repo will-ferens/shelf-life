@@ -1,4 +1,4 @@
-import { deleteBookActions } from '../constants/constants_book'
+import { deleteBookActions } from '../../constants/constants_book'
 
 export const deleteBookBegin = () => ({
     type: deleteBookActions.DELETE_BOOK_BEGIN
@@ -16,7 +16,7 @@ export const deleteBookFailure = error => ({
 
 export function deleteBook(bookId){
     const id_token = localStorage.getItem('id_token')
-    const DELETE_URL = `http://localhost:3001/books/${bookId}`
+    const DELETE_URL = `https://shelf-life1991.herokuapp.com/books/${bookId}`
     return dispatch => {
         dispatch(deleteBookBegin())
 

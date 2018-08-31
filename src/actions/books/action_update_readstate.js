@@ -1,4 +1,4 @@
-import { updateBookActions } from '../constants/constants_book'
+import { updateBookActions } from '../../constants/constants_book'
 
 export const patchBookBegin = () => ({
     type: updateBookActions.PATCH_USER_BOOK_BEGIN
@@ -16,7 +16,7 @@ export const patchBookFailure = error => ({
 
 export function updateBook(bookId, readState){
     const id_token = localStorage.getItem('id_token')
-    const PATCH_URL = `http://localhost:3001/books/${bookId}`
+    const PATCH_URL = `https://shelf-life1991.herokuapp.com/books/${bookId}`
     const toPut = {readState: readState}
 
     return dispatch => {

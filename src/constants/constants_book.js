@@ -19,6 +19,13 @@ export const fetchUserBookActions = {
     FETCH_USER_BOOKS_FAILURE: 'FETCH_USER_BOOKS_FAILURE',
 }
 
+export const readStateActions = {
+    READ_STATE: 'READ_STATE',
+    READ_STATE_TOREAD: 'READ_STATE_TOREAD',
+    READ_STATE_READING: 'READ_STATE_READING',
+    READ_STATE_READ: 'READ_STATE_READ'
+}
+
 export const updateBookActions = {
     PATCH_USER_BOOK: 'PATCH_USER_BOOK',
     PATCH_USER_BOOK_BEGIN: 'PATCH_USER_BOOK_BEGIN',

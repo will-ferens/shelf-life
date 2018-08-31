@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchBook } from '../actions/action_book_search'
+import { fetchBook } from '../actions/books/action_book_search'
 
 import SearchReturn from '../components/search_return'
 

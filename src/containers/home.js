@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import BookTable from '../components/book_table'
+import BookTable from './book_table'
 import SearchBar from './search_bar'
 import SelectedBook from './selected_book'
 
-import { fetchUserBooks } from '../actions/fetch_user_books'
+import { fetchUserBooks } from '../actions/books/fetch_user_books'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -17,7 +17,6 @@ class YourBooks extends Component {
 
         
         this.props.fetchUserBooks()
-        
 
     }
     componentWillUnmount() {
@@ -33,8 +32,7 @@ class YourBooks extends Component {
             <div className="main">
                 <div className="book-table">
                     <h2>Your Books</h2>
-                    <BookTable 
-                        books={this.props.userBooks} />
+                    <BookTable />
                 </div>
                 <div className="search">
                 <SearchBar />

@@ -1,4 +1,4 @@
-import { fetchBookActions } from '../constants/constants_book'
+import { fetchBookActions } from '../../constants/constants_book'
     
 const API_KEY = 'AIzaSyAHWyKUtEptq99fnW9I7x2V7LOjrmgCnLk'
 const ROOT_URL = 'https://www.googleapis.com/books/v1/volumes?q='

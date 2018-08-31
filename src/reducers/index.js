@@ -9,7 +9,7 @@ import PatchBook from './reducer_patch_book'
 import DeleteBook from './reducer_delete_book'
 import NewSelectedBook from './reducer_select_new_book'
 import UserSelecetedBook from './reducer_select_user_book'
-
+import FilterUserBooks from './reducer_filter_read_state'
 
 
 const rootReducer = combineReducers({
@@ -21,7 +21,8 @@ const rootReducer = combineReducers({
     PatchBook: PatchBook,
     DeleteBook: DeleteBook,
     NewSelectedBook: NewSelectedBook,
-    UserSelecetedBook: UserSelecetedBook
+    UserSelecetedBook: UserSelecetedBook,
+    FilterUserBooks: FilterUserBooks
 })
 
 export default rootReducer

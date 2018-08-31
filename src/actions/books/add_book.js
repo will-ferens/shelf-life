@@ -1,8 +1,8 @@
-import { postBookActions } from '../constants/constants_book'
+import { postBookActions } from '../../constants/constants_book'
 
 export const ADD_BOOK = 'ADD_BOOK'
 
-const ADD_URL = 'http://localhost:3001/books/addbook'
+const ADD_URL = 'https://shelf-life1991.herokuapp.com/books/addbook'
 
 export const addBookBegin = () => ({
     type: postBookActions.POST_BOOK_BEGIN

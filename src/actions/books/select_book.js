@@ -1,4 +1,4 @@
-import { selectBookActions } from '../constants/constants_book'
+import { selectBookActions } from '../../constants/constants_book'
 
 export function selectNewBook(book) {
     console.log(book)

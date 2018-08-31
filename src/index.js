@@ -39,11 +39,9 @@ ReactDOM.render(
                 <Switch>
                     <Router history={history}>
                         <main>
-                            
                             <Route path="/register" component={Register} />
                             <Route path="/login" component={Login} />
                             <PrivateRoute exact path="/home" component={YourBooks} />
-                            <Route path="/" component={Landing} />
                         </main>
                     </Router>
                 </Switch>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import '../style/selectedBook.css'
 import blank from '../assets/blank.jpeg'
-import { addBook } from '../actions/add_book'
-import { deleteBook } from '../actions/action_remove_book'
-import { updateBook } from '../actions/action_update_readstate'
+import { addBook } from '../actions/books/add_book'
+import { deleteBook } from '../actions/books/action_remove_book'
+import { updateBook } from '../actions/books/action_update_readstate'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 

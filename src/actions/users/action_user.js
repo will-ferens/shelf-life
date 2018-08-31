@@ -1,7 +1,7 @@
-import { userConstants } from '../constants/constants_user'
-import { history } from '../helpers/history'
+import { userConstants } from '../../constants/constants_user'
+import { history } from '../../helpers/history'
 
-const AUTH_URL = 'http://localhost:3001/login'
+const AUTH_URL = 'https://shelf-life1991.herokuapp.com/login'
 
 
 export const fetchUserBegin = () => ({
@@ -31,7 +31,7 @@ export function login(email, password){
                 if(response.status === 200){
                     localStorage.setItem('id_token', user.token)
                     dispatch(fetchUserSuccess(user))
-                    history.push('/')
+                    history.push('/home')
                 } else { 
                     handleErrors(user)
                 }

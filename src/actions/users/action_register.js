@@ -1,7 +1,7 @@
-import { userConstants } from '../constants/constants_user'
-import { history } from '../helpers/history'
+import { userConstants } from '../../constants/constants_user'
+import { history } from '../../helpers/history'
 
-const REGISTER_URL = 'http://localhost:3001/register'
+const REGISTER_URL = 'https://shelf-life1991.herokuapp.com/register'
 
 export const registerActions = {
     register

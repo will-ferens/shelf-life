@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { registerActions } from '../actions/action_register'
+import { registerActions } from '../actions/users/action_register'
 
 import '../style/login.css'
 

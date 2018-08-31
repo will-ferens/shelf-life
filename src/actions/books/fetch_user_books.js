@@ -1,6 +1,6 @@
-import { fetchUserBookActions } from '../constants/constants_book'
+import { fetchUserBookActions } from '../../constants/constants_book'
 
-const GET_URL = 'http://localhost:3001/books'
+const GET_URL = 'https://shelf-life1991.herokuapp.com/books'
 
 
 export const fetchUserBooksBegin = () => ({
