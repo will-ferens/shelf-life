@@ -36,15 +36,16 @@ ReactDOM.render(
         <BrowserRouter>
             <div id="app">
                 <Header />
-                <Switch>
-                    <Router history={history}>
-                        <main>
-                            <Route path="/register" component={Register} />
-                            <Route path="/login" component={Login} />
-                            <PrivateRoute exact path="/home" component={YourBooks} />
-                        </main>
-                    </Router>
-                </Switch>
+                    <Switch>
+                        <Router history={history}>
+                            <main>
+                                <Route path="/register" component={Register} />
+                                <Route path="/login" component={Login} />
+                                <PrivateRoute exact path="/home" component={YourBooks} />
+                                <Route exact path="/" component={Landing} />
+                            </main>
+                        </Router>
+                    </Switch>
                 <Footer />
             </div>
         </BrowserRouter>
