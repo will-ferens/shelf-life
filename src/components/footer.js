@@ -17,7 +17,8 @@ const Footer = () => {
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a href="https://github.com/will-ferens" target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 1024 1024">
+                    <a href="https://github.com/will-ferens" target="_blank" rel="noopener noreferrer">
+                    <svg width="17" height="17" viewBox="0 0 1024 1024">
                     <path d={ICONS.GITHUB}></path>
                     </svg></a>
                 </li>
