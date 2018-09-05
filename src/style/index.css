@@ -7,7 +7,7 @@ body, html {
 
 #app {
   display: grid;
-  grid-gap: 16px;
+
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }

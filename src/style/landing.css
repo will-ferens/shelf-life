@@ -82,11 +82,12 @@
 .bottom {
     display: grid;
     justify-content: center;
+    grid-template-rows: 2fr 1fr;
 }
 .links-bot {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
 }
 #cta {
     justify-self: center;

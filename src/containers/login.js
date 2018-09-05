@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { userActions } from '../actions/users/action_user'
+import Loading from '../components/loading'
 
 import '../style/login.css'
 
@@ -13,7 +14,7 @@ class Login extends Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
         }
 
         this.onEmailChange = this.onEmailChange.bind(this)
@@ -37,36 +38,71 @@ class Login extends Component {
     }
 
     render(){
-        return (
-            <section className="login-wrapper">
-                <div className="login">
-                        <div className="title">
-                            <h2 className="title-text">Login</h2>
-                        </div>
-                            <form 
-                                name="login"
-                                className="login-form"
-                                onSubmit={this.onFormSubmit}>
-                                <label htmlFor="username">Email</label>
-                                <input 
-                                    required
-                                    type="text"
-                                    className="email-input"
-                                    value={this.state.email}
-                                    onChange={this.onEmailChange}  />
-                                <label htmlFor="password">Password</label>
-                                <input 
-                                    required
-                                    type="password"
-                                    className="password-input"
-                                    value={this.state.password}
-                                    onChange={this.onPasswordChange}  />
-                                <button type="submit" className="submit">Submit</button>
-                                <Link to="/register"><button className="login-link">Or register</button></Link>
-                            </form>
-                </div>
-            </section>
-        )
+        if(this.props.userInfo.loading) return <Loading />
+        if(this.props.userInfo.error) { 
+            return (
+                <section className="login-wrapper">
+                    <div className="login">
+                            <div className="title">
+                                <h2 className="title-text">Login</h2>
+                                <p>Wrong email or password!</p>
+                            </div>
+                                <form 
+                                    name="login"
+                                    className="login-form"
+                                    onSubmit={this.onFormSubmit}>
+                                    <label htmlFor="username">Email</label>
+                                    <input 
+                                        required
+                                        type="text"
+                                        className="email-input"
+                                        value={this.state.email}
+                                        onChange={this.onEmailChange}  />
+                                    <label htmlFor="password">Password</label>
+                                    <input 
+                                        required
+                                        type="password"
+                                        className="password-input"
+                                        value={this.state.password}
+                                        onChange={this.onPasswordChange}  />
+                                    <button type="submit" className="submit">Submit</button>
+                                    <Link to="/register"><button className="login-link">Or register</button></Link>
+                                </form>
+                    </div>
+                </section>
+            )
+        } else {
+            return (
+                <section className="login-wrapper">
+                    <div className="login">
+                            <div className="title">
+                                <h2 className="title-text">Login</h2>
+                            </div>
+                                <form 
+                                    name="login"
+                                    className="login-form"
+                                    onSubmit={this.onFormSubmit}>
+                                    <label htmlFor="username">Email</label>
+                                    <input 
+                                        required
+                                        type="text"
+                                        className="email-input"
+                                        value={this.state.email}
+                                        onChange={this.onEmailChange}  />
+                                    <label htmlFor="password">Password</label>
+                                    <input 
+                                        required
+                                        type="password"
+                                        className="password-input"
+                                        value={this.state.password}
+                                        onChange={this.onPasswordChange}  />
+                                    <button type="submit" className="submit">Submit</button>
+                                    <Link to="/register"><button className="login-link">Or register</button></Link>
+                                </form>
+                    </div>
+                </section>
+            )
+        }
     }
 }
 
@@ -74,4 +110,11 @@ function mapDispatchToProps(dispatch){
     return bindActionCreators({ login }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+function mapStateToProps(state) {
+
+    return {
+        userInfo: state.userInfo
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

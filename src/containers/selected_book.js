@@ -4,7 +4,9 @@ import blank from '../assets/blank.jpeg'
 import { addBook } from '../actions/books/add_book'
 import { deleteBook } from '../actions/books/action_remove_book'
 import { updateBook } from '../actions/books/action_update_readstate'
+import { fetchUserBooks } from '../actions/books/fetch_user_books'
 import { bindActionCreators } from 'redux'
+import { selectNewBook, selectUserBook } from '../actions/books/select_book'
 import { connect } from 'react-redux'
 
 class SelectedBook extends Component {
@@ -43,6 +45,15 @@ class SelectedBook extends Component {
             }
         
         this.props.addBook(selectedBook)
+        this.props.selectNewBook(null)
+        setTimeout(
+            function() {
+                this.props.fetchUserBooks()
+            }
+            .bind(this),
+            1000
+        )
+
     }
 
     onDeleteButtonPressed(event) {
@@ -51,7 +62,14 @@ class SelectedBook extends Component {
         const bookId = this.props.UserSelecetedBook._id
 
         this.props.deleteBook(bookId)
-
+        setTimeout(
+            function() {
+                this.props.fetchUserBooks()
+            }
+            .bind(this),
+            1000
+        )
+        this.props.selectUserBook(null)
     }
 
     onToReadButtonPressed(event) {
@@ -61,6 +79,13 @@ class SelectedBook extends Component {
         
         let readState = 'ToRead'
         this.props.updateBook(bookId, readState)
+        setTimeout(
+            function() {
+                this.props.fetchUserBooks()
+            }
+            .bind(this),
+            1000
+        )
     }
 
     onReadingButtonPressed(event) {
@@ -70,6 +95,13 @@ class SelectedBook extends Component {
         
         let readState = 'Reading'
         this.props.updateBook(bookId, readState)
+        setTimeout(
+            function() {
+                this.props.fetchUserBooks()
+            }
+            .bind(this),
+            1000
+        )
     }
 
     onReadButtonPressed(event) {
@@ -79,6 +111,14 @@ class SelectedBook extends Component {
 
         let readState = 'Read'
         this.props.updateBook(bookId, readState)
+        setTimeout(
+            function() {
+                this.props.fetchUserBooks()
+            }
+            .bind(this),
+            1000
+        )
+        
     }
 
     render (){
@@ -143,10 +183,8 @@ class SelectedBook extends Component {
                     </div>
                     <div className="user-book-body">
                         <span><i>Description:</i> {userBook.description}</span>
-                        <button className="remove-button" onClick={this.onDeleteButtonPressed}>Remove from Shelf</button>
-                    </div>
-                    <div>
                         {update}
+                        <button className="remove-button" onClick={this.onDeleteButtonPressed}>Remove from Shelf</button>
                     </div>
                 </div>
             )
@@ -154,7 +192,9 @@ class SelectedBook extends Component {
         
         else {
             return (
-                <div> </div>
+                <div>
+                    <h2>Select a book</h2>
+                </div>
             )
         }
             
@@ -163,7 +203,15 @@ class SelectedBook extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({ addBook, deleteBook, updateBook }, dispatch)
+    return bindActionCreators(
+        { 
+            addBook, 
+            deleteBook, 
+            updateBook, 
+            fetchUserBooks, 
+            selectNewBook,
+            selectUserBook 
+        }, dispatch)
 }
 
 function mapStateToProps(state){

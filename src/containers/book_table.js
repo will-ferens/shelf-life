@@ -2,7 +2,7 @@ import React from 'react'
 import BookItem from './book_item'
 import { bookSelector, toReadSelector, ReadingSelector, ReadSelector } from '../selectors'
 import { connect } from 'react-redux'
-import { map } from 'bluebird';
+import Loading from '../components/loading'
 
 
 const BookTable = (props) => {
@@ -40,7 +40,10 @@ const BookTable = (props) => {
         return <div>Whoops! Something went wrong.</div>
     }
     if(props.loading) {
-        return <div>Loading...</div>
+        return <Loading />
+    }
+    if(props.books.length === 0) {
+        return <div>Add some books to get started!</div> 
     }
     if(props.books != null) {
         return (
@@ -61,8 +64,9 @@ const BookTable = (props) => {
         )
 
     }
+    
     if(props){ 
-        return <div></div> 
+        return <div></div>
     }
 }
 
@@ -76,11 +80,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, null)(BookTable)
-
-// <div key={1}>
-//                     <h3>To Read</h3>
-//                     <BookItem 
-//                         book={book} 
-//                         key={book._id} 
-//                         />
-//              </div>

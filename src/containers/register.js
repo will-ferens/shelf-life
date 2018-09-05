@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { registerActions } from '../actions/users/action_register'
-
+import FormErrors from '../components/formErrors'
+import Loading from '../components/loading'
 import '../style/login.css'
 
 const register = registerActions.register
@@ -15,7 +16,10 @@ class Register extends Component {
             email: '',
             username: '',
             password: '',
-            passwordConf: ''
+            passwordConf: '',
+            emailValid: false,
+            formValid: false,
+            errors: {}
         }
 
         this.onEmailChange = this.onEmailChange.bind(this)
@@ -27,28 +31,57 @@ class Register extends Component {
 
     onEmailChange(event){
         this.setState({ email: event.target.value })
+        this.validateField('email', this.state.email)
     }
     
+    validateField(field, value) {
+        let emailValid = this.state.emailValid 
+        let errors = this.state.errors
+
+        
+        switch(field) {
+            case 'email':
+                emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
+                errors.email = emailValid ? '' : 'Please enter a valid email.'
+            break
+            
+        }
+        
+        this.setState({
+            errors: errors,
+            emailValid: emailValid
+        }, this.validateForm)
+    }
+
+    validateForm() {
+        this.setState({formValid: this.state.emailValid})
+    }
+
     onUsernameChange(event){
         this.setState({ username: event.target.value })
     }
 
     onPasswordChange(event){
         this.setState({ password: event.target.value })
+        
     }
 
     onPasswordConfChange(event){
         this.setState({ passwordConf: event.target.value })
+        this.validateField('password', this.state.password)   
     }
 
     onFormSubmit(event){
         event.preventDefault()
 
-        this.props.register(this.state.email, this.state.username, this.state.password, this.state.passwordConf,)
-        this.setState({ email: '', username: '', password: '', passwordConf: '' })
+        if(this.state.formValid){
+            this.props.register(this.state.email, this.state.username, this.state.password, this.state.passwordConf,)
+            this.setState({ email: '', username: '', password: '', passwordConf: '' })
+        }
     }
 
     render(){
+        if(this.props.register.loading) return <Loading />
         return (
             <section className="login-wrapper">
                 <div className="login">
@@ -75,6 +108,7 @@ class Register extends Component {
                         <label htmlFor="password">Password</label>
                         <input
                             required
+                            ref="password"
                             type="password"
                             value={this.state.password}
                             onChange={this.onPasswordChange} 
@@ -86,7 +120,8 @@ class Register extends Component {
                             value={this.passwordConf}
                             onChange={this.onPasswordConfChange}
                             />
-                        <button className="submit">Submit</button>
+                        <FormErrors errors={this.state.errors} />
+                        <button className="submit" disabled={!this.state.formValid}>Submit</button>
                         <Link to="/login"><button className="login-link">Back to login</button></Link>
                     </form>
                     </div>
@@ -100,4 +135,10 @@ function mapDispatchToProps(dispatch){
     return bindActionCreators({ register }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Register)
+function mapStateToProps(state) {
+    return {
+        register: state.RegisteredUser
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

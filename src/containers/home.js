@@ -3,6 +3,7 @@ import BookTable from './book_table'
 import SearchBar from './search_bar'
 import SelectedBook from './selected_book'
 
+
 import { fetchUserBooks } from '../actions/books/fetch_user_books'
 
 import { connect } from 'react-redux'
@@ -17,13 +18,6 @@ class YourBooks extends Component {
 
         
         this.props.fetchUserBooks()
-
-    }
-    componentWillUnmount() {
-        window.onbeforeunload = function(event) {
-            console.log('poop')
-            return localStorage.removeItem('id_token')
-        }
     }
 
     render(){
@@ -40,7 +34,6 @@ class YourBooks extends Component {
                 <div className="selected-book">
                     <SelectedBook />
                 </div>
-                
             </div>
         )
     }

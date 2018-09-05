@@ -9,7 +9,7 @@
     grid-column: 1 / 4;
     justify-self: center;
     align-self: center;
-    background-color: #AA22B2;
+    background-color: #8331FF;
     color: white;
 }
 
@@ -75,5 +75,11 @@
 
 .login-link:hover {
 color: white;
-background-color: #6815E5;
+background-color: #3A21E8;
+}
+
+.load {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

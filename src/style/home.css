@@ -3,23 +3,26 @@
     display: grid;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 28px;
+    grid-gap: 16px;
 } 
 
 .user-books {
     list-style: none;
-    padding-left: 20px;
+
 }
 
 .book-table {
     grid-column: 1;
+    margin: 10px;
 }
 
 .search {
     grid-column: 3;
+    margin: 10px;
 }
 
 .selected-book {
     grid-row: 1;
     grid-column: 2;
+
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import ResultList from './results'
-
+import Loading from './loading'
 
 const SearchReturn = (props) => {
 
@@ -13,7 +13,7 @@ const SearchReturn = (props) => {
             return <div>Oops! There was an error</div>
         }
         if(loading) {
-            return <div>Loading...</div>
+            return <Loading />
         }
         if(newBooks)
             return (
