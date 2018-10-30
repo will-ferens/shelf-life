@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { selectUserBook } from '../actions/books/select_book'
+import { selectUserBook } from '../../actions/books/select_book'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'

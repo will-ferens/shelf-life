@@ -1,30 +1,33 @@
-import { updateBookActions } from '../constants/constants_book'
+import { fetchUserBookActions } from '../../constants/constants_book'
 
 const initialState = {
-    loading: false,
-    error: null
+    loading: false, 
+    error: null,
+    userBooks: []
 }
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        case updateBookActions.PATCH_USER_BOOK_BEGIN:
+        case fetchUserBookActions.FETCH_USER_BOOKS_BEGIN:
             return {
                 ...state,
                 loading: true,
                 error: null
             }
-        case updateBookActions.PATCH_USER_BOOK_SUCCESS:
+        case fetchUserBookActions.FETCH_USER_BOOKS_SUCCESS:
             return {
                 ...state,
-                loading: false
+                loading: false,
+                userBooks: action.payload.books 
             }
-        case updateBookActions.PATCH_USER_BOOK_FAILURE:
+        case fetchUserBookActions.FETCH_USER_BOOKS_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.payload.error
             }
-        default:
+        default: 
             return state
     }
 }
+

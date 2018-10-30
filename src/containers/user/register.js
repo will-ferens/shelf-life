@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { registerActions } from '../actions/users/action_register'
-import FormErrors from '../components/formErrors'
-import Loading from '../components/loading'
-import '../style/login.css'
+import { registerActions } from '../../actions/users/action_register'
+import FormErrors from '../../components/functional/formErrors'
+import Loading from '../../components/presentational/loading'
+import '../../style/login.css'
 
 const register = registerActions.register
 class Register extends Component {

@@ -4,13 +4,13 @@ import SearchBar from './search_bar'
 import SelectedBook from './selected_book'
 
 
-import { fetchUserBooks } from '../actions/books/fetch_user_books'
+import { fetchUserBooks } from '../../actions/books/fetch_user_books'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 
-import '../style/home.css'
+import '../../style/home.css'
 
 class YourBooks extends Component {
     constructor(props) {

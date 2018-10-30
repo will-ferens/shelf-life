@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { LANDING, BOOKSVG } from '../constants/constants_icons'
-import '../style/landing.css'
+import { LANDING, BOOKSVG } from '../../constants/constants_icons'
+import '../../style/landing.css'
 
 const fill = "#8331FF"
 

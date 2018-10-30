@@ -1,7 +1,7 @@
 import React from 'react'
-import ResultItem from '../containers/result_item'
+import ResultItem from '../../containers/dashboard/result_item'
 
-import '../style/results.css'
+import '../../style/results.css'
 
 const ResultList = (props) => {
 

@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { userActions } from '../actions/users/action_user'
-import Loading from '../components/loading'
+import { userActions } from '../../actions/users/action_user'
+import Loading from '../../components/presentational/loading'
 
-import '../style/login.css'
+import '../../style/login.css'
 
 const login = userActions.login
 class Login extends Component {

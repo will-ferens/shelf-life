@@ -1,44 +1,30 @@
-import { userConstants } from '../constants/constants_user'
+import { postBookActions } from '../../constants/constants_book'
 
 const initialState = {
-    user: '',
     loading: false,
-    isAuthenticated: false,
     error: null
 }
 
 export default function(state = initialState, action) {
-    switch(action.type){
-        case userConstants.LOGIN_REQUEST:
+    switch(action.type) {
+        case postBookActions.POST_BOOK_BEGIN:
             return {
                 ...state,
                 loading: true,
                 error: null
             }
-
-        case userConstants.LOGIN_SUCCESS:
+        case postBookActions.POST_BOOK_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                isAuthenticated: true,
-                user: action.payload.user
             }
-
-        case userConstants.LOGIN_FAILURE:
+        case postBookActions.POST_BOOK_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.payload.error
             }
-
-        case userConstants.LOGOUT_SUCCESS:
-            return {
-                ...state,
-                isAuthenticated: false
-            }
-
-        default: 
+        default:
             return state
-
     }
 }

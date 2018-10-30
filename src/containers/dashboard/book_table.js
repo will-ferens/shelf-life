@@ -1,8 +1,8 @@
 import React from 'react'
 import BookItem from './book_item'
-import { bookSelector, toReadSelector, ReadingSelector, ReadSelector } from '../selectors'
+import { bookSelector, toReadSelector, ReadingSelector, ReadSelector } from '../../selectors'
 import { connect } from 'react-redux'
-import Loading from '../components/loading'
+import Loading from '../../components/presentational/loading'
 
 
 const BookTable = (props) => {

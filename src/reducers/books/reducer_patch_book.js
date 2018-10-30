@@ -1,31 +1,29 @@
-import { userConstants } from '../constants/constants_user'
+import { updateBookActions } from '../../constants/constants_book'
 
 const initialState = {
     loading: false,
     error: null
 }
 
-export default function(state = initialState, action){
-    switch(action.type){
-        case userConstants.REGISTER_REQUEST:
+export default function(state = initialState, action) {
+    switch(action.type) {
+        case updateBookActions.PATCH_USER_BOOK_BEGIN:
             return {
                 ...state,
                 loading: true,
+                error: null
             }
-
-        case userConstants.REGISTER_SUCCESS:
+        case updateBookActions.PATCH_USER_BOOK_SUCCESS:
             return {
                 ...state,
-                loading: false,
+                loading: false
             }
-
-        case userConstants.REGISTER_FAILURE:
+        case updateBookActions.PATCH_USER_BOOK_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.payload.error
             }
-            
         default:
             return state
     }

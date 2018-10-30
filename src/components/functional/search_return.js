@@ -1,6 +1,6 @@
 import React from 'react'
 import ResultList from './results'
-import Loading from './loading'
+import Loading from '../presentational/loading'
 
 const SearchReturn = (props) => {
 

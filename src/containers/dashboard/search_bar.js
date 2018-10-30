@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchBook } from '../actions/books/action_book_search'
+import { fetchBook } from '../../actions/books/action_book_search'
 
-import SearchReturn from '../components/search_return'
+import SearchReturn from '../../components/functional/search_return'
 
 class SearchBar extends Component {
     constructor(props){
