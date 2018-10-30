@@ -12,6 +12,13 @@ export const postBookActions = {
     POST_BOOK_FAILURE: 'POST_BOOK_FAILURE',
 }
 
+export const viewBookActions = {
+    VIEW_BOOK: 'VIEW_BOOK',
+    VIEW_BOOK_BEGIN: 'VIEW_BOOK_BEGIN',
+    VIEW_BOOK_SUCCESS: 'VIEW_BOOK_SUCCESS',
+    VIEW_BOOK_FAILURE: 'VIEW_BOOK_FAILURE',
+}
+
 export const fetchUserBookActions = {
     FETCH_USER_BOOK: 'FETCH_USER_BOOK',
     FETCH_USER_BOOKS_BEGIN: 'FETCH_USER_BOOKS_BEGIN',
