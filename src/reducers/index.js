@@ -1,17 +1,23 @@
 import { combineReducers } from 'redux'
 
+//USER 
 import User from './users/reducer_user'
 import RegisteredUser from './users/reducer_register'
 
-import NewBook  from './books/reducer_book_search'
+//CRUD 
 import AddBook from './books/reducer_add_book'
 import UserBooks from './books/reducer_user_books_fetch'
 import PatchBook from './books/reducer_patch_book'
 import DeleteBook from './books/reducer_delete_book'
+
+//SEARCH 
+import NewBook  from './books/reducer_book_search'
 import NewSelectedBook from './books/reducer_select_new_book'
 import UserSelecetedBook from './books/reducer_select_user_book'
-import ViewedBook from './books/reducer_view_book'
 
+//RECOMMENDATION TRACKING
+import ViewedBook from './books/reducer_view_book'
+import LikedBook from './books/reducer_like_book'
 
 
 const rootReducer = combineReducers({
@@ -24,7 +30,8 @@ const rootReducer = combineReducers({
     DeleteBook: DeleteBook,
     NewSelectedBook: NewSelectedBook,
     UserSelecetedBook: UserSelecetedBook,
-    ViewedBook: ViewedBook
+    ViewedBook: ViewedBook,
+    LikedBook: LikedBook
 })
 
 export default rootReducer

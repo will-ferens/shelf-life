@@ -12,6 +12,12 @@ export const postBookActions = {
     POST_BOOK_FAILURE: 'POST_BOOK_FAILURE',
 }
 
+export const likeBookActions = {
+    LIKE_BOOK: 'LIKE_BOOK',
+    LIKE_BOOK_BEGIN: 'LIKE_BOOK_BEGIN',
+    LIKE_BOOK_SUCCESS: 'LIKE_BOOK_SUCCESS',
+    LIKE_BOOK_FAILURE: 'LIKE_BOOK_FAILURE',
+}
 export const viewBookActions = {
     VIEW_BOOK: 'VIEW_BOOK',
     VIEW_BOOK_BEGIN: 'VIEW_BOOK_BEGIN',

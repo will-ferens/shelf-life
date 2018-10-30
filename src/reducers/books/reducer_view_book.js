@@ -13,7 +13,7 @@ export default function(state = initialState, action) {
         case viewBookActions.VIEW_BOOK_SUCCESS:
             return {
                 ...state,
-                success: true
+                success: action.payload.book
             }
             case viewBookActions.VIEW_BOOK_FAILURE:
             return {

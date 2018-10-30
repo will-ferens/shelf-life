@@ -7,6 +7,7 @@ import { updateBook } from '../../actions/books/action_update_readstate'
 import { fetchUserBooks } from '../../actions/books/fetch_user_books'
 import { bindActionCreators } from 'redux'
 import { selectNewBook, selectUserBook } from '../../actions/books/select_book'
+import { likeBook } from '../../actions/books/liked_book'
 import { connect } from 'react-redux'
 
 class SelectedBook extends Component {
@@ -153,6 +154,7 @@ class SelectedBook extends Component {
                     <div className="book-body">
                         <span><i>Description:</i> {newBook.volumeInfo.description}</span>
                         <button className="add-button" onClick={this.onAddButtonPressed}>Add Book to Shelf</button>
+                        <button className="like-button">Like</button>
                     </div>
                 </div>
             )
@@ -184,6 +186,7 @@ class SelectedBook extends Component {
                     <div className="user-book-body">
                         <span><i>Description:</i> {userBook.description}</span>
                         {update}
+                        <button className="like-button">Like</button>
                         <button className="remove-button" onClick={this.onDeleteButtonPressed}>Remove from Shelf</button>
                     </div>
                 </div>
@@ -210,7 +213,8 @@ function mapDispatchToProps(dispatch){
             updateBook, 
             fetchUserBooks, 
             selectNewBook,
-            selectUserBook 
+            selectUserBook,
+            likeBook 
         }, dispatch)
 }
 
