@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../../style/selectedBook.css'
 import blank from '../../assets/blank.jpeg'
+import { HEART } from '../../constants/constants_icons'
 import { addBook } from '../../actions/books/add_book'
 import { deleteBook } from '../../actions/books/action_remove_book'
 import { updateBook } from '../../actions/books/action_update_readstate'
@@ -10,6 +11,7 @@ import { selectNewBook, selectUserBook } from '../../actions/books/select_book'
 import { likeBook } from '../../actions/books/liked_book'
 import { connect } from 'react-redux'
 
+const fill = '#000'
 class SelectedBook extends Component {
     constructor(props) {
         super(props)
@@ -122,6 +124,10 @@ class SelectedBook extends Component {
         
     }
 
+    onLikeButtonPressed(event) {
+        event.preventDefault()
+    }
+
     render (){
         const newBook = this.props.NewSelectedBook
         const userBook = this.props.UserSelecetedBook
@@ -154,7 +160,7 @@ class SelectedBook extends Component {
                     <div className="book-body">
                         <span><i>Description:</i> {newBook.volumeInfo.description}</span>
                         <button className="add-button" onClick={this.onAddButtonPressed}>Add Book to Shelf</button>
-                        <button className="like-button">Like</button>
+                        <button className="like-button">Like <svg width="20" height="20" viewBox="0 0 100 100"><path d={HEART.HEART} fill={fill}></path> <path d={HEART.HEART_2} fill={fill}></path></svg></button>
                     </div>
                 </div>
             )
