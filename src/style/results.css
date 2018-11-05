@@ -4,7 +4,8 @@
 }
 .list-item {
     width: 50%;
+    margin-bottom: 12px;
 }
 .list-item:hover {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
 }

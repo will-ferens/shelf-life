@@ -17,6 +17,7 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 loading: false,
+                user: action.payload.json
             }
 
         case userConstants.REGISTER_FAILURE:

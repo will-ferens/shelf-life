@@ -3,6 +3,7 @@ import { history } from '../../helpers/history'
 
 const REGISTER_URL = 'https://shelf-life1991.herokuapp.com/register'
 
+
 export const registerActions = {
     register
 }
@@ -29,8 +30,9 @@ export function register(email, username, password, passwordConf){
             if(!response.status){
                 handleErrors(json)
             } else {
+                localStorage.setItem('id_token', json.token)
                 dispatch(registerUserSuccess(json))
-                history.push('/login')
+                history.push('/home')
             }
         })
         .catch(error => dispatch(registerUserFail(error)))

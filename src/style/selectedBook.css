@@ -85,5 +85,22 @@
 }
 
 .like-button {
-    
+    height: auto;
+    width: auto;
+    border: none;
+    color: white;
+    background-color: #008CFF;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:sans-serif;
+    font-size: 1em;
+    font-weight:300;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.like-contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
